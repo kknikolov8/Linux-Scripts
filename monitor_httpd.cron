@@ -1,0 +1,13 @@
+# Cron Job for Monitoring HTTPD Process
+#
+# This cron job checks if the HTTPD service is running every minute.
+# If the process is not running, the script (/opt/scripts/monitor_processes.sh)
+# will attempt to restart it.
+#
+# - Script Path: /opt/scripts/monitor_processes.sh
+# - Log File: /var/log/monitor_httpd.log
+# - Schedule: Runs every minute (*/1 * * * *)
+#
+# The output and errors from the script are appended to the log file.
+
+* * * * * /opt/scripts/monitor_processes.sh &>> /var/log/monitor_httpd.log
